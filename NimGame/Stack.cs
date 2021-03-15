@@ -29,7 +29,7 @@ namespace NimGame
         }
         public bool canBeTaken(int elementsToTake)
         {
-            if (numberOfElements >= elementsToTake)
+            if (numberOfElements >= elementsToTake&&elementsToTake>0)
                 return true;
             return false;
         }
