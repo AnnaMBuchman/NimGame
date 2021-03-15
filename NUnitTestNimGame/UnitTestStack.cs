@@ -1,5 +1,5 @@
 using NUnit.Framework;
-using NimGame;
+using NimGame_WinForms;
 
 namespace NUnitTestNimGame
 {

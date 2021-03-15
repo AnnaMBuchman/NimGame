@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace NimGame
+namespace NimGame_WinForms
 {
     public class Stack
     {
