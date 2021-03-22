@@ -7,7 +7,7 @@ namespace NimGame_WinForms
     public class Stack
     {
         private int number { get; }
-        private int numberOfElements { get; set; }
+        public int numberOfElements { get; set; }
         public Stack(int number, int numberOfElements)
         {
             this.number=number;
