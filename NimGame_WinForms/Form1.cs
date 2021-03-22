@@ -46,8 +46,9 @@ namespace NimGame_WinForms
         private void Confirm_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Form2 form2 = new Form2(numberOfStacks,numberOfElements);
+            Form2 form2 = new Form2(numberOfStacks,numberOfElements, this);
             form2.ShowDialog();
+            
         }
     }
 }

@@ -17,19 +17,24 @@ namespace NimGame_WinForms
         private List<Stack> stacks;
         private int numberWhichStack=0;
         private int numberElemenetsTaken = 1;
-        public Form2(int numberOfStacks, int numberOfElements)
+        Form1 form;
+        public Form2(int numberOfStacks, int numberOfElements,Form1 form)
         {
+
             InitializeComponent();
             this.numberOfStacks = numberOfStacks;
             this.numberOfElements = numberOfElements;
+            this.form = form;
             whichStack.Maximum = numberOfStacks;
             generateStacks();
+            splitContainer1.Panel2.Invalidate();
         }
 
         private void Start_Click(object sender, EventArgs e)
         {
-            Start.BackColor = Color.Gray;
-            Take.BackColor = Color.Tomato;
+           
+            Take.Visible = true;
+            Start.Hide();
         }
         private void generateStacks()
         {
@@ -72,6 +77,42 @@ namespace NimGame_WinForms
                 Take.Show();
                 numberElementsToTake.Maximum = stacks[numberWhichStack].numberOfElements;
             }
+            splitContainer1.Panel2.Invalidate();
+            foreach(var s in stacks)
+            {
+                if (!s.checkIfEmpty())
+                    return;
+
+            }
+            Form3 form3 = new Form3(this);
+            form3.ShowDialog();
+            form.Close();
+            
+        }
+
+        private void splitContainer1_Panel2_Paint(object sender, PaintEventArgs e)
+        {
+            Pen pen = new Pen(Color.Brown);
+
+            SolidBrush sb = new SolidBrush(Color.Brown);
+            int i = 0;
+            foreach (var s in stacks )
+            {
+                e.Graphics.DrawRectangle(pen,
+                    50+i, 50, 4, 500);
+                e.Graphics.FillRectangle(sb,
+                    50+i, 50, 4, 500);
+                for(int j=0;j< s.numberOfElements;j++)
+                {
+                    e.Graphics.DrawRectangle(pen,
+                    30 + i, 420-j*30, 40, 20);
+                    e.Graphics.FillRectangle(sb,
+                        30 + i, 420 - j * 30, 40, 20);
+                }
+                i += 500/numberOfStacks;
+            }
+                
+            
         }
     }
 }
