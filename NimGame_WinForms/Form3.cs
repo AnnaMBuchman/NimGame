@@ -13,9 +13,11 @@ namespace NimGame_WinForms
     public partial class Form3 : Form
     {
         Form2 form2;
-        public Form3(Form2 form2)
+        public Form3(Form2 form2,bool ifHumanWin)
         {
             this.form2 = form2;
+            if (!ifHumanWin)
+                howWin.Text = "COMPUTER WIN!";
             InitializeComponent();
         }
 
