@@ -6,7 +6,7 @@ namespace NimGame_WinForms
 {
     public class Stack
     {
-        private int number { get; }
+        public int number { get; }
         public int numberOfElements { get; set; }
         public Stack(int number, int numberOfElements)
         {

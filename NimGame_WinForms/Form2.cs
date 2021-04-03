@@ -29,6 +29,7 @@ namespace NimGame_WinForms
             this.form = form;
             this.ifHumanStarts = ifHumanStarts;
             whichStack.Maximum = numberOfStacks;
+            numberElementsToTake.Maximum = numberOfElements;
             generateStacks();
             splitContainer1.Panel2.Invalidate();
         }
@@ -38,7 +39,8 @@ namespace NimGame_WinForms
             Start.Hide();
             if (!ifHumanStarts)
                 computerMove();
-            Take.Show();
+            if(!stacks[numberWhichStack].checkIfEmpty())
+                Take.Show();
            
         }
         private void generateStacks()
@@ -61,6 +63,7 @@ namespace NimGame_WinForms
             {
                 Take.Show();
                 numberElementsToTake.Maximum = stacks[numberWhichStack].numberOfElements;
+                numberElementsToTake.Minimum = 1;
             }
             
         }
@@ -79,21 +82,32 @@ namespace NimGame_WinForms
             }
             else
             {
-                Take.Show();
-                numberElementsToTake.Maximum = stacks[numberWhichStack].numberOfElements;
+                if (!stacks[numberWhichStack].checkIfEmpty())
+                {
+                    Take.Show();
+                    numberElementsToTake.Maximum = stacks[numberWhichStack].numberOfElements;
+                }
+                
             }
             splitContainer1.Panel2.Invalidate();
-
-            foreach(var s in stacks)
+            splitContainer1.Panel2.Refresh();
+            foreach (var s in stacks)
             {
                 if (!s.checkIfEmpty())
                 {
+                    Take.Hide();
+                    Thread.Sleep(1500);
                     computerMove();
+                    if (!stacks[numberWhichStack].checkIfEmpty())
+                    {
+                        Take.Show();
+                        numberElementsToTake.Maximum = stacks[numberWhichStack].numberOfElements;
+                    }
                     return;
                 }
             }
 
-            Form3 form3 = new Form3(this,true);
+            Form3 form3 = new Form3(this,false);
             form3.ShowDialog();
             form.Close();
             
@@ -124,14 +138,18 @@ namespace NimGame_WinForms
         }
         private void computerMove()
         {
-            Thread.Sleep(1000);
+            (int s, int num) computerGet = ComputerStrategy.nimMove(stacks);
+            stacks[computerGet.s].takeNumberOfElements(computerGet.num);
+            numberElementsToTake.Maximum = stacks[numberWhichStack].numberOfElements;
+            splitContainer1.Panel2.Invalidate();
+            splitContainer1.Panel2.Refresh();
             foreach (var s in stacks)
             {
                 if (!s.checkIfEmpty())
                     return;
             }
 
-            Form3 form3 = new Form3(this, false);
+            Form3 form3 = new Form3(this, true);
             form3.ShowDialog();
             form.Close();
         }

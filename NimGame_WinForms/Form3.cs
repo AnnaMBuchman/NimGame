@@ -16,9 +16,10 @@ namespace NimGame_WinForms
         public Form3(Form2 form2,bool ifHumanWin)
         {
             this.form2 = form2;
+           
+            InitializeComponent();
             if (!ifHumanWin)
                 howWin.Text = "COMPUTER WIN!";
-            InitializeComponent();
         }
 
         private void NewGame_Click(object sender, EventArgs e)
