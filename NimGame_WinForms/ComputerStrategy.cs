@@ -61,9 +61,10 @@ namespace NimGame_WinForms
                         {
                             numerS = s.number;
                             h = s.numberOfElements;
-                        }
-                        return (numerS, 1);
+                            
+                        }    
                     }
+                    return (numerS, 1);
 
                 }
 
