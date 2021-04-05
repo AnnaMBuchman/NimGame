@@ -38,17 +38,13 @@ namespace NimGame_WinForms
                     foreach(var s in stacks)
                     {
                         int numberE=s.numberOfElements;
-                        for(int i=0;i< numberE; i++)
+                        int targetSize = nimS ^ numberE;
+                        int toRemove = 0;
+                        if (targetSize < numberE)
                         {
-                            s.numberOfElements--;
-                            nimS = nimSum(stacks);
-                            if (nimS == 0)
-                            {
-                                s.numberOfElements = numberE;
-                                return (s.number, i+1);
-                            }
+                            toRemove = numberE - targetSize;
+                            return (s.number, toRemove);
                         }
-                        s.numberOfElements = numberE;
                     }
                 }
                 else
