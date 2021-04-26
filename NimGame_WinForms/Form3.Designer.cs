@@ -64,7 +64,7 @@ namespace NimGame_WinForms
             this.howWin.Name = "howWin";
             this.howWin.Size = new System.Drawing.Size(126, 24);
             this.howWin.TabIndex = 2;
-            this.howWin.Text = "HUMAN WIN!";
+            this.howWin.Text = "HUMAN WINS!";
             // 
             // Form3
             // 

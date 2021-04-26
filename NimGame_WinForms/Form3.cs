@@ -19,7 +19,7 @@ namespace NimGame_WinForms
            
             InitializeComponent();
             if (!ifHumanWin)
-                howWin.Text = "COMPUTER WIN!";
+                howWin.Text = "COMPUTER WINS!";
         }
 
         private void NewGame_Click(object sender, EventArgs e)

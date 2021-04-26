@@ -123,7 +123,7 @@ namespace NimGame_WinForms
             this.humanOrComputer.Items.Add("Human");
             this.humanOrComputer.Items.Add("Computer");
             this.humanOrComputer.Location = new System.Drawing.Point(43, 201);
-            this.humanOrComputer.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.humanOrComputer.Margin = new System.Windows.Forms.Padding(4);
             this.humanOrComputer.Name = "humanOrComputer";
             this.humanOrComputer.Size = new System.Drawing.Size(160, 22);
             this.humanOrComputer.TabIndex = 5;
@@ -135,9 +135,9 @@ namespace NimGame_WinForms
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(48, 181);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(137, 17);
+            this.label3.Size = new System.Drawing.Size(139, 17);
             this.label3.TabIndex = 6;
-            this.label3.Text = "How starts the game";
+            this.label3.Text = "Who starts the game";
             // 
             // Form1
             // 
