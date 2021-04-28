@@ -15,9 +15,14 @@ namespace NimGame_WinForms
         public int numberOfStacks = 3;
         public int numberOfElements = 3;
         public bool ifHumanStarts = true;
+        List<int> _scores = new List<int>();
         public Form1()
         {
             InitializeComponent();
+            listNumber.Hide();
+            add.Hide();
+            listBox1.Hide();
+            Clear.Hide();
         }
 
         private void Form1_Load(object sender, EventArgs e)
@@ -45,10 +50,76 @@ namespace NimGame_WinForms
 
         private void Confirm_Click(object sender, EventArgs e)
         {
-            this.Hide();
-            Form2 form2 = new Form2(numberOfStacks,numberOfElements, this, ifHumanStarts);
+            if(EqualNumber.SelectedIndex==1)
+            {
+                if(_scores.Count< numberOfStacks)
+                {
+                    MessageBox.Show("Not enough stacks heights");
+                    return;
+                }
+                else if (_scores.Count > numberOfStacks)
+                {
+                    MessageBox.Show("To many stacks heights");
+                    return;
+                }
+            }
+            this.Hide();            
+            Form2 form2 = new Form2(numberOfStacks,numberOfElements, this, ifHumanStarts,_scores);
             form2.ShowDialog();
             
+        }
+
+        private void domainUpDown1_SelectedItemChanged(object sender, EventArgs e)
+        {
+            if (EqualNumber.SelectedIndex == 0)
+            {
+                numberElements.Show();
+                listNumber.Hide();
+                listBox1.Hide();
+                add.Hide();
+                Clear.Hide();
+            }
+            else
+            {
+                numberElements.Hide();
+                listNumber.Show();
+                add.Show();
+                listBox1.Show();
+                Clear.Show();
+            }
+        }
+
+        private void listNumber_TextChanged(object sender, EventArgs e)
+        {
+            int parsedValue;
+            if (listNumber.Text != ""&&!int.TryParse(listNumber.Text, out parsedValue))
+            {
+                MessageBox.Show("This is a number only field");
+                return;
+            }
+        }
+
+        private void add_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                int _score = int.TryParse(listNumber.Text, out int converted) ? converted : 0; // Correct Way Of Handling As Mentioned In Comments
+                _scores.Add(_score);
+                listBox1.Items.Add(_score);
+                listNumber.Text = null;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.ToString());
+            }
+            
+        }
+
+        private void Clear_Click(object sender, EventArgs e)
+        {
+            listBox1.Items.Clear();
+            _scores.Clear();
         }
     }
 }

@@ -20,7 +20,7 @@ namespace NimGame_WinForms
         private int numberElemenetsTaken = 1;
         private bool ifHumanStarts;
         Form1 form;
-        public Form2(int numberOfStacks, int numberOfElements,Form1 form,bool ifHumanStarts)
+        public Form2(int numberOfStacks, int numberOfElements,Form1 form,bool ifHumanStarts,List<int> stacksHeight)
         {
 
             InitializeComponent();
@@ -30,7 +30,7 @@ namespace NimGame_WinForms
             this.ifHumanStarts = ifHumanStarts;
             whichStack.Maximum = numberOfStacks;
             numberElementsToTake.Maximum = numberOfElements;
-            generateStacks();
+            generateStacks(stacksHeight);
             splitContainer1.Panel2.Invalidate();
         }
 
@@ -43,12 +43,25 @@ namespace NimGame_WinForms
                 Take.Show();
            
         }
-        private void generateStacks()
+        private void generateStacks(List<int> stacksHeight)
         {
+
             stacks = new List<Stack>();
-            for(int i =0;i< numberOfStacks;i++)
+            if (stacksHeight.Count == 0)
             {
-                stacks.Add(new Stack(i, numberOfElements));
+                for (int i = 0; i < numberOfStacks; i++)
+                {
+                    stacks.Add(new Stack(i, numberOfElements));
+                }
+            }
+            else
+            {
+                int i = 0;
+                foreach (var j in stacksHeight)
+                {
+                    stacks.Add(new Stack(i, j));
+                    i++;
+                }
             }
         }
 

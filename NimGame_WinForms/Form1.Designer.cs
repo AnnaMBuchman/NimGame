@@ -36,6 +36,12 @@ namespace NimGame_WinForms
             this.label2 = new System.Windows.Forms.Label();
             this.humanOrComputer = new System.Windows.Forms.DomainUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.EqualNumber = new System.Windows.Forms.DomainUpDown();
+            this.listNumber = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.add = new System.Windows.Forms.Button();
+            this.Clear = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.stacksNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberElements)).BeginInit();
             this.SuspendLayout();
@@ -43,7 +49,7 @@ namespace NimGame_WinForms
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(63, 22);
+            this.label1.Location = new System.Drawing.Point(166, 24);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(118, 17);
             this.label1.TabIndex = 0;
@@ -51,7 +57,7 @@ namespace NimGame_WinForms
             // 
             // stacksNumber
             // 
-            this.stacksNumber.Location = new System.Drawing.Point(67, 57);
+            this.stacksNumber.Location = new System.Drawing.Point(169, 71);
             this.stacksNumber.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.stacksNumber.Maximum = new decimal(new int[] {
             6,
@@ -75,7 +81,7 @@ namespace NimGame_WinForms
             // 
             // numberElements
             // 
-            this.numberElements.Location = new System.Drawing.Point(67, 133);
+            this.numberElements.Location = new System.Drawing.Point(164, 311);
             this.numberElements.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numberElements.Maximum = new decimal(new int[] {
             10,
@@ -100,7 +106,7 @@ namespace NimGame_WinForms
             // Confirm
             // 
             this.Confirm.BackColor = System.Drawing.Color.DodgerBlue;
-            this.Confirm.Location = new System.Drawing.Point(67, 231);
+            this.Confirm.Location = new System.Drawing.Point(159, 542);
             this.Confirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(100, 50);
@@ -112,7 +118,7 @@ namespace NimGame_WinForms
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(27, 100);
+            this.label2.Location = new System.Drawing.Point(132, 262);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(192, 17);
             this.label2.TabIndex = 2;
@@ -122,7 +128,7 @@ namespace NimGame_WinForms
             // 
             this.humanOrComputer.Items.Add("Human");
             this.humanOrComputer.Items.Add("Computer");
-            this.humanOrComputer.Location = new System.Drawing.Point(43, 201);
+            this.humanOrComputer.Location = new System.Drawing.Point(135, 486);
             this.humanOrComputer.Margin = new System.Windows.Forms.Padding(4);
             this.humanOrComputer.Name = "humanOrComputer";
             this.humanOrComputer.Size = new System.Drawing.Size(160, 22);
@@ -133,18 +139,87 @@ namespace NimGame_WinForms
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(48, 181);
+            this.label3.Location = new System.Drawing.Point(156, 443);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(139, 17);
             this.label3.TabIndex = 6;
             this.label3.Text = "Who starts the game";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(142, 122);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(173, 17);
+            this.label4.TabIndex = 7;
+            this.label4.Text = "Equal numer of elements?";
+            // 
+            // EqualNumber
+            // 
+            this.EqualNumber.Items.Add("Yes");
+            this.EqualNumber.Items.Add("No");
+            this.EqualNumber.Location = new System.Drawing.Point(145, 180);
+            this.EqualNumber.Margin = new System.Windows.Forms.Padding(4);
+            this.EqualNumber.Name = "EqualNumber";
+            this.EqualNumber.Size = new System.Drawing.Size(160, 22);
+            this.EqualNumber.TabIndex = 8;
+            this.EqualNumber.TabStop = false;
+            this.EqualNumber.Text = "Yes";
+            this.EqualNumber.SelectedItemChanged += new System.EventHandler(this.domainUpDown1_SelectedItemChanged);
+            // 
+            // listNumber
+            // 
+            this.listNumber.Location = new System.Drawing.Point(68, 310);
+            this.listNumber.Name = "listNumber";
+            this.listNumber.Size = new System.Drawing.Size(149, 22);
+            this.listNumber.TabIndex = 9;
+            this.listNumber.TextChanged += new System.EventHandler(this.listNumber_TextChanged);
+            // 
+            // listBox1
+            // 
+            this.listBox1.FormattingEnabled = true;
+            this.listBox1.ItemHeight = 16;
+            this.listBox1.Location = new System.Drawing.Point(72, 372);
+            this.listBox1.Name = "listBox1";
+            this.listBox1.Size = new System.Drawing.Size(145, 68);
+            this.listBox1.TabIndex = 10;
+            // 
+            // add
+            // 
+            this.add.BackColor = System.Drawing.Color.DodgerBlue;
+            this.add.Location = new System.Drawing.Point(275, 306);
+            this.add.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.add.Name = "add";
+            this.add.Size = new System.Drawing.Size(100, 29);
+            this.add.TabIndex = 11;
+            this.add.Text = "add";
+            this.add.UseVisualStyleBackColor = false;
+            this.add.Click += new System.EventHandler(this.add_Click);
+            // 
+            // Clear
+            // 
+            this.Clear.BackColor = System.Drawing.Color.DodgerBlue;
+            this.Clear.Location = new System.Drawing.Point(284, 395);
+            this.Clear.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
+            this.Clear.Name = "Clear";
+            this.Clear.Size = new System.Drawing.Size(100, 29);
+            this.Clear.TabIndex = 12;
+            this.Clear.Text = "Clear list";
+            this.Clear.UseVisualStyleBackColor = false;
+            this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(284, 310);
+            this.ClientSize = new System.Drawing.Size(451, 601);
+            this.Controls.Add(this.Clear);
+            this.Controls.Add(this.add);
+            this.Controls.Add(this.listBox1);
+            this.Controls.Add(this.listNumber);
+            this.Controls.Add(this.EqualNumber);
+            this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.humanOrComputer);
             this.Controls.Add(this.Confirm);
@@ -172,6 +247,12 @@ namespace NimGame_WinForms
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.DomainUpDown humanOrComputer;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.DomainUpDown EqualNumber;
+        private System.Windows.Forms.TextBox listNumber;
+        private System.Windows.Forms.ListBox listBox1;
+        private System.Windows.Forms.Button add;
+        private System.Windows.Forms.Button Clear;
     }
 }
 
