@@ -153,13 +153,17 @@ namespace NimGame_WinForms
         {
             (int s, int num) computerGet = ComputerStrategy.nimMove(stacks);
             stacks[computerGet.s].takeNumberOfElements(computerGet.num);
-            numberElementsToTake.Maximum = stacks[numberWhichStack].numberOfElements;
+            
             splitContainer1.Panel2.Invalidate();
             splitContainer1.Panel2.Refresh();
             foreach (var s in stacks)
             {
                 if (!s.checkIfEmpty())
+                {
+                    whichStack.Value = s.number+1;
+                    numberElementsToTake.Maximum = stacks[s.number].numberOfElements;
                     return;
+                }
             }
 
             Form3 form3 = new Form3(this, true);
