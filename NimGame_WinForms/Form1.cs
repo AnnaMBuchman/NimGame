@@ -16,6 +16,7 @@ namespace NimGame_WinForms
         public int numberOfElements = 3;
         public bool ifHumanStarts = true;
         List<int> _scores = new List<int>();
+        private int strategy = 0;
         public Form1()
         {
             InitializeComponent();
@@ -64,7 +65,7 @@ namespace NimGame_WinForms
                 }
             }
             this.Hide();            
-            Form2 form2 = new Form2(numberOfStacks,numberOfElements, this, ifHumanStarts,_scores);
+            Form2 form2 = new Form2(numberOfStacks,numberOfElements, this, ifHumanStarts,_scores, strategy);
             form2.ShowDialog();
             
         }
@@ -120,6 +121,11 @@ namespace NimGame_WinForms
         {
             listBox1.Items.Clear();
             _scores.Clear();
+        }
+
+        private void strategyCompuuter_SelectedItemChanged(object sender, EventArgs e)
+        {
+            strategy = strategyCompuuter.SelectedIndex;
         }
     }
 }

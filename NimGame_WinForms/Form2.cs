@@ -19,8 +19,9 @@ namespace NimGame_WinForms
         private int numberWhichStack=0;
         private int numberElemenetsTaken = 1;
         private bool ifHumanStarts;
+        private int strategyComputer;
         Form1 form;
-        public Form2(int numberOfStacks, int numberOfElements,Form1 form,bool ifHumanStarts,List<int> stacksHeight)
+        public Form2(int numberOfStacks, int numberOfElements,Form1 form,bool ifHumanStarts,List<int> stacksHeight, int strategyComputer)
         {
 
             InitializeComponent();
@@ -28,6 +29,7 @@ namespace NimGame_WinForms
             this.numberOfElements = numberOfElements;
             this.form = form;
             this.ifHumanStarts = ifHumanStarts;
+            this.strategyComputer = strategyComputer;
             whichStack.Maximum = numberOfStacks;
             numberElementsToTake.Maximum = numberOfElements;
             generateStacks(stacksHeight);
@@ -151,7 +153,11 @@ namespace NimGame_WinForms
         }
         private void computerMove()
         {
-            (int s, int num) computerGet = ComputerStrategy.nimMove(stacks);
+            (int s, int num) computerGet=(0,0);
+            if (strategyComputer == 0)
+                computerGet = ComputerStrategy.nimMove(stacks);
+            else
+                computerGet = RandomComputerStrategy.choose(stacks);
             stacks[computerGet.s].takeNumberOfElements(computerGet.num);
             
             splitContainer1.Panel2.Invalidate();

@@ -42,6 +42,8 @@ namespace NimGame_WinForms
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.add = new System.Windows.Forms.Button();
             this.Clear = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
+            this.strategyCompuuter = new System.Windows.Forms.DomainUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.stacksNumber)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numberElements)).BeginInit();
             this.SuspendLayout();
@@ -106,7 +108,7 @@ namespace NimGame_WinForms
             // Confirm
             // 
             this.Confirm.BackColor = System.Drawing.Color.DodgerBlue;
-            this.Confirm.Location = new System.Drawing.Point(159, 542);
+            this.Confirm.Location = new System.Drawing.Point(159, 623);
             this.Confirm.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.Confirm.Name = "Confirm";
             this.Confirm.Size = new System.Drawing.Size(100, 50);
@@ -208,12 +210,36 @@ namespace NimGame_WinForms
             this.Clear.UseVisualStyleBackColor = false;
             this.Clear.Click += new System.EventHandler(this.Clear_Click);
             // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(145, 531);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(155, 21);
+            this.label5.TabIndex = 13;
+            this.label5.Text = "Computer strategy";
+            // 
+            // strategyCompuuter
+            // 
+            this.strategyCompuuter.Items.Add("Main");
+            this.strategyCompuuter.Items.Add("Random");
+            this.strategyCompuuter.Items.Add("Minimize stacks number");
+            this.strategyCompuuter.Location = new System.Drawing.Point(135, 573);
+            this.strategyCompuuter.Margin = new System.Windows.Forms.Padding(4);
+            this.strategyCompuuter.Name = "strategyCompuuter";
+            this.strategyCompuuter.Size = new System.Drawing.Size(160, 22);
+            this.strategyCompuuter.TabIndex = 14;
+            this.strategyCompuuter.Text = "Main";
+            this.strategyCompuuter.SelectedItemChanged += new System.EventHandler(this.strategyCompuuter_SelectedItemChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.LavenderBlush;
-            this.ClientSize = new System.Drawing.Size(451, 601);
+            this.ClientSize = new System.Drawing.Size(455, 703);
+            this.Controls.Add(this.strategyCompuuter);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.Clear);
             this.Controls.Add(this.add);
             this.Controls.Add(this.listBox1);
@@ -253,6 +279,8 @@ namespace NimGame_WinForms
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Button add;
         private System.Windows.Forms.Button Clear;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.DomainUpDown strategyCompuuter;
     }
 }
 
