@@ -28,6 +28,39 @@ namespace NimGame_WinForms
 
             return true;
         }
+        static public (int stack, int numberElements) nearEndStrategy(List<Stack> stacks)
+        {
+            int max = 0;
+            int maxiter = 0;
+            int count = 0;
+            foreach (var s in stacks)
+            {
+                if (s.numberOfElements > 0)
+                {
+                    count++;
+                    if (max < s.numberOfElements)
+                    {
+                        max = s.numberOfElements;
+                        maxiter = s.number;
+                    }
+                }
+
+            }
+            if (count % 2 == 1)
+            {
+                if (max > 1)
+                {
+
+                    return (maxiter, max - 1);
+                }
+                else
+                {
+                    return (maxiter, 1);
+                }
+            }           
+
+            return (maxiter, max);            
+        }
         static public (int stack, int numberElements) nimMove(List<Stack> stacks)
         {
             if(!nearEnd(stacks))
@@ -67,40 +100,7 @@ namespace NimGame_WinForms
             }
             else
             {
-                int max = 0;
-                int maxiter = 0;
-                int count = 0;
-                foreach(var s in stacks)
-                {
-                    if(s.numberOfElements>0)
-                    {
-                        count++;
-                        if (max < s.numberOfElements)
-                        {
-                            max = s.numberOfElements;
-                            maxiter = s.number;
-                        }
-                    }
-
-                }
-                if(count%2==1)
-                {
-                    if(max>1)
-                    {
-
-                        return (maxiter, max-1);
-                    }
-                    else
-                    {
-                        return (maxiter, 1);
-                    }
-                }
-                else
-                {
-
-                    return (maxiter, max);
-                    
-                }
+                return nearEndStrategy(stacks);
             }
             return (0, 0);
         }

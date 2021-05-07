@@ -13,6 +13,8 @@ namespace NimGame_WinForms
 {
     public partial class Form2 : Form
     {
+        public Dictionary<int, int> minValue = new Dictionary<int, int>();
+        public Dictionary<int, int> maxValue = new Dictionary<int, int>();
         private int numberOfStacks;
         private int numberOfElements;
         private List<Stack> stacks;
@@ -21,6 +23,7 @@ namespace NimGame_WinForms
         private bool ifHumanStarts;
         private int strategyComputer;
         Form1 form;
+
         public Form2(int numberOfStacks, int numberOfElements,Form1 form,bool ifHumanStarts,List<int> stacksHeight, int strategyComputer)
         {
 
@@ -35,7 +38,19 @@ namespace NimGame_WinForms
             generateStacks(stacksHeight);
             splitContainer1.Panel2.Invalidate();
         }
-
+        private void MinMaxValues()
+        {
+            minValue.Add(1, 2);
+            maxValue.Add(1, 8);
+            minValue.Add(2, 4);
+            maxValue.Add(2, 5);
+            minValue.Add(3, 4);
+            maxValue.Add(3, 5);
+            minValue.Add(4, 8);
+            maxValue.Add(4, 9);
+            minValue.Add(5, 8);
+            maxValue.Add(5, 9);
+        }
         private void Start_Click(object sender, EventArgs e)
         {
             Start.Hide();
@@ -156,8 +171,12 @@ namespace NimGame_WinForms
             (int s, int num) computerGet=(0,0);
             if (strategyComputer == 0)
                 computerGet = ComputerStrategy.nimMove(stacks);
+            else if(strategyComputer == 1)
+                computerGet = RandomComputerStrategy.Strategy(stacks);
+            else if (strategyComputer == 2)
+                computerGet = MinimizeComputerStrategy.Strategy(stacks);
             else
-                computerGet = RandomComputerStrategy.choose(stacks);
+                computerGet = KnownStatesComputerStrategy.Strategy(stacks,minValue,maxValue);
             stacks[computerGet.s].takeNumberOfElements(computerGet.num);
             
             splitContainer1.Panel2.Invalidate();

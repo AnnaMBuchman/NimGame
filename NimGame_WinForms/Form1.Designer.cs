@@ -215,7 +215,7 @@ namespace NimGame_WinForms
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(145, 531);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(155, 21);
+            this.label5.Size = new System.Drawing.Size(124, 17);
             this.label5.TabIndex = 13;
             this.label5.Text = "Computer strategy";
             // 
@@ -224,6 +224,7 @@ namespace NimGame_WinForms
             this.strategyCompuuter.Items.Add("Main");
             this.strategyCompuuter.Items.Add("Random");
             this.strategyCompuuter.Items.Add("Minimize stacks number");
+            this.strategyCompuuter.Items.Add("Known states");
             this.strategyCompuuter.Location = new System.Drawing.Point(135, 573);
             this.strategyCompuuter.Margin = new System.Windows.Forms.Padding(4);
             this.strategyCompuuter.Name = "strategyCompuuter";
