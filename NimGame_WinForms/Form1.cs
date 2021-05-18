@@ -105,6 +105,13 @@ namespace NimGame_WinForms
                 MessageBox.Show("Number could not equal 0");
                 return;
             }
+            int.TryParse(listNumber.Text, out parsedValue);
+            if (parsedValue > 15)
+            {
+                listNumber.Text = "";
+                MessageBox.Show("Number could not be greater than 15");
+                return;
+            }
         }
 
         private void add_Click(object sender, EventArgs e)
