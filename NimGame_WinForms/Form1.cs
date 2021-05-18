@@ -95,7 +95,14 @@ namespace NimGame_WinForms
             int parsedValue;
             if (listNumber.Text != ""&&!int.TryParse(listNumber.Text, out parsedValue))
             {
+                listNumber.Text = "";
                 MessageBox.Show("This is a number only field");
+                return;
+            }
+            if (listNumber.Text=="0")
+            {
+                listNumber.Text = "";
+                MessageBox.Show("Number could not equal 0");
                 return;
             }
         }
@@ -104,10 +111,13 @@ namespace NimGame_WinForms
         {
             try
             {
-                int _score = int.TryParse(listNumber.Text, out int converted) ? converted : 0; // Correct Way Of Handling As Mentioned In Comments
-                _scores.Add(_score);
-                listBox1.Items.Add(_score);
-                listNumber.Text = null;
+                if (listNumber.Text != "")
+                {
+                    int _score = int.TryParse(listNumber.Text, out int converted) ? converted : 0; // Correct Way Of Handling As Mentioned In Comments
+                    _scores.Add(_score);
+                    listBox1.Items.Add(_score);
+                    listNumber.Text = null;
+                }
 
             }
             catch (Exception ex)
