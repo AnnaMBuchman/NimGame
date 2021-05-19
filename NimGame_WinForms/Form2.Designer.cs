@@ -47,7 +47,7 @@ namespace NimGame_WinForms
             // 
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -70,7 +70,7 @@ namespace NimGame_WinForms
             // numberElementsToTake
             // 
             this.numberElementsToTake.Location = new System.Drawing.Point(87, 272);
-            this.numberElementsToTake.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.numberElementsToTake.Margin = new System.Windows.Forms.Padding(4);
             this.numberElementsToTake.Maximum = new decimal(new int[] {
             10,
             0,
@@ -89,12 +89,13 @@ namespace NimGame_WinForms
             0,
             0,
             0});
+            this.numberElementsToTake.Visible = false;
             this.numberElementsToTake.ValueChanged += new System.EventHandler(this.numberElementsToTake_ValueChanged);
             // 
             // whichStack
             // 
             this.whichStack.Location = new System.Drawing.Point(87, 156);
-            this.whichStack.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.whichStack.Margin = new System.Windows.Forms.Padding(4);
             this.whichStack.Maximum = new decimal(new int[] {
             10,
             0,
@@ -113,6 +114,7 @@ namespace NimGame_WinForms
             0,
             0,
             0});
+            this.whichStack.Visible = false;
             this.whichStack.ValueChanged += new System.EventHandler(this.whichStack_ValueChanged);
             // 
             // label2
@@ -124,6 +126,7 @@ namespace NimGame_WinForms
             this.label2.Size = new System.Drawing.Size(135, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "Number of elements";
+            this.label2.Visible = false;
             // 
             // label1
             // 
@@ -134,12 +137,13 @@ namespace NimGame_WinForms
             this.label1.Size = new System.Drawing.Size(84, 17);
             this.label1.TabIndex = 0;
             this.label1.Text = "Which stack";
+            this.label1.Visible = false;
             // 
             // Take
             // 
             this.Take.BackColor = System.Drawing.Color.Tomato;
             this.Take.Location = new System.Drawing.Point(87, 383);
-            this.Take.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Take.Margin = new System.Windows.Forms.Padding(4);
             this.Take.Name = "Take";
             this.Take.Size = new System.Drawing.Size(136, 39);
             this.Take.TabIndex = 1;
@@ -151,8 +155,8 @@ namespace NimGame_WinForms
             // Start
             // 
             this.Start.BackColor = System.Drawing.Color.Tomato;
-            this.Start.Location = new System.Drawing.Point(87, 41);
-            this.Start.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Start.Location = new System.Drawing.Point(91, 253);
+            this.Start.Margin = new System.Windows.Forms.Padding(4);
             this.Start.Name = "Start";
             this.Start.Size = new System.Drawing.Size(136, 41);
             this.Start.TabIndex = 0;
@@ -167,7 +171,7 @@ namespace NimGame_WinForms
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1004, 543);
             this.Controls.Add(this.splitContainer1);
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "Form2";
             this.Text = "Form2";
             this.splitContainer1.Panel1.ResumeLayout(false);

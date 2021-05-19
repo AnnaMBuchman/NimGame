@@ -56,8 +56,14 @@ namespace NimGame_WinForms
             Start.Hide();
             if (!ifHumanStarts)
                 computerMove();
-            if(!stacks[numberWhichStack].checkIfEmpty())
+            if (!stacks[numberWhichStack].checkIfEmpty())
+            {
                 Take.Show();
+                label1.Show();
+                label2.Show();
+                whichStack.Show();
+                numberElementsToTake.Show();
+            }
            
         }
         private void generateStacks(List<int> stacksHeight)
