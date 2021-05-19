@@ -133,6 +133,7 @@ namespace NimGame_WinForms
             this.humanOrComputer.Location = new System.Drawing.Point(135, 486);
             this.humanOrComputer.Margin = new System.Windows.Forms.Padding(4);
             this.humanOrComputer.Name = "humanOrComputer";
+            this.humanOrComputer.ReadOnly = true;
             this.humanOrComputer.Size = new System.Drawing.Size(160, 22);
             this.humanOrComputer.TabIndex = 5;
             this.humanOrComputer.Text = "Human";
@@ -163,6 +164,7 @@ namespace NimGame_WinForms
             this.EqualNumber.Location = new System.Drawing.Point(145, 180);
             this.EqualNumber.Margin = new System.Windows.Forms.Padding(4);
             this.EqualNumber.Name = "EqualNumber";
+            this.EqualNumber.ReadOnly = true;
             this.EqualNumber.Size = new System.Drawing.Size(160, 22);
             this.EqualNumber.TabIndex = 8;
             this.EqualNumber.TabStop = false;
@@ -229,6 +231,7 @@ namespace NimGame_WinForms
             this.strategyCompuuter.Location = new System.Drawing.Point(135, 573);
             this.strategyCompuuter.Margin = new System.Windows.Forms.Padding(4);
             this.strategyCompuuter.Name = "strategyCompuuter";
+            this.strategyCompuuter.ReadOnly = true;
             this.strategyCompuuter.Size = new System.Drawing.Size(160, 22);
             this.strategyCompuuter.TabIndex = 14;
             this.strategyCompuuter.Text = "Main";
