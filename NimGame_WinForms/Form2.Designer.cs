@@ -172,6 +172,8 @@ namespace NimGame_WinForms
             this.ClientSize = new System.Drawing.Size(1004, 543);
             this.Controls.Add(this.splitContainer1);
             this.Margin = new System.Windows.Forms.Padding(4);
+            this.MaximumSize = new System.Drawing.Size(1022, 590);
+            this.MinimumSize = new System.Drawing.Size(1022, 590);
             this.Name = "Form2";
             this.Text = "Form2";
             this.splitContainer1.Panel1.ResumeLayout(false);
