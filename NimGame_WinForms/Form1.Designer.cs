@@ -86,7 +86,7 @@ namespace NimGame_WinForms
             this.numberElements.Location = new System.Drawing.Point(164, 311);
             this.numberElements.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.numberElements.Maximum = new decimal(new int[] {
-            10,
+            15,
             0,
             0,
             0});
