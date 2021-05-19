@@ -222,6 +222,7 @@ namespace NimGame_WinForms
             // strategyCompuuter
             // 
             this.strategyCompuuter.Items.Add("Main");
+            this.strategyCompuuter.Items.Add("Eeasy");
             this.strategyCompuuter.Items.Add("Random");
             this.strategyCompuuter.Items.Add("Minimize stacks number");
             this.strategyCompuuter.Items.Add("Known states");

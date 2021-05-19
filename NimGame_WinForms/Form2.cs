@@ -171,9 +171,11 @@ namespace NimGame_WinForms
             (int s, int num) computerGet=(0,0);
             if (strategyComputer == 0)
                 computerGet = ComputerStrategy.nimMove(stacks);
-            else if(strategyComputer == 1)
+            else if (strategyComputer == 1)
+                computerGet = RandomComputerStrategy.SuperRandomStrategy(stacks);
+            else if(strategyComputer == 2)
                 computerGet = RandomComputerStrategy.Strategy(stacks);
-            else if (strategyComputer == 2)
+            else if (strategyComputer == 3)
                 computerGet = MinimizeComputerStrategy.Strategy(stacks);
             else
                 computerGet = KnownStatesComputerStrategy.Strategy(stacks,minValue,maxValue);
