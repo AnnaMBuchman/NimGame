@@ -37,6 +37,7 @@ namespace NimGame_WinForms
             numberElementsToTake.Maximum = numberOfElements;
             generateStacks(stacksHeight);
             splitContainer1.Panel2.Invalidate();
+            MinMaxValues();
         }
         private void MinMaxValues()
         {

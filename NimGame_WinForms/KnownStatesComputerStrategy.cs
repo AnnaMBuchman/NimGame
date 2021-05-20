@@ -89,16 +89,12 @@ namespace NimGame_WinForms
                         int secondHeight = 1000;
                         int secondStack = 1000;
 
-                        foreach (var st in stacks)
-                        {
-                            if (!st.checkIfEmpty() && minimalHeight > st.numberOfElements)
-                            {
-                                secondHeight = minimalHeight;
-                                secondStack = minimalStack;
-                                minimalHeight = st.numberOfElements;
-                                minimalStack = st.number;
-                            }
-                        }
+                        List<Stack> tmp =stacks.OrderBy(a => a.numberOfElements).ToList();
+
+                        minimalHeight = tmp[0].numberOfElements;
+                        minimalStack = tmp[0].number;
+                        secondHeight = tmp[1].numberOfElements;
+                        secondStack = tmp[1].number;
                         if(minimalHeight > 5)
                         {
                             return (minimalStack, minimalHeight - 5);
